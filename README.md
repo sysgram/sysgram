@@ -3,7 +3,7 @@
 
 <!-- badges -->
 [![Build Status](https://img.shields.io/static/v1?label=helper&message=Telegram&color=informational)](https://t.me/Azimjanovich)
-[![Minimum PHP Version](https://img.shields.io/static/v1?label=packagist&message=v1.1&color=blueviolet)](https://packagist.org/packages/sysgram/sysgram)
+[![Minimum PHP Version](https://img.shields.io/static/v1?label=packagist&message=v1.2&color=blueviolet)](https://packagist.org/packages/sysgram/sysgram)
 [![Minimum PHP Version](https://img.shields.io/static/v1?label=downloads&message=...&color=success)](https://packagist.org/packages/sysgram/sysgram)
 [![Minimum PHP Version](https://img.shields.io/static/v1?label=PHP&message=>=8.0&color=blue)](https://php.net/)
 [![License](https://img.shields.io/packagist/l/php-telegram-bot/laravel.svg)](https://github.com/sysgram/sysgram/LICENSE.md)
@@ -41,7 +41,7 @@ Or you'll need to modify the composer.json file in your project as follows:
     "name": "yourproject/yourproject",
     "type": "project",
     "require": {
-        "sysgram/sysgram": "^1.1"
+        "sysgram/sysgram": "^1.2"
     }
 }
 ```
