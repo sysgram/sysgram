@@ -6,7 +6,7 @@
  * @author                       Javlonbek Tuychiyev
  * @author                       Javlonbek Tuychiyev <https://t.me/DGUuz>
  * @copyright                    President Tuychiyev <j.a.tuychiyev@gmail.com>
- * 
+ *
  * @package composer             composer require sysgram/sysgram
  * @package git                  https://github.com/sysgram/sysgram.git
  * @version sysgram              Sysgram v 1.3
@@ -16,21 +16,19 @@
  * file that was distributed with this source code.
  */
 
-
- /**
-  * 
+/**
+ *
  * @link https://core.telegram.org/bots/api                 Documentation for the function.
  * @see https://github.com/sysgram/sysgram/README.md        You can get the full guide to using the index from
- * 
+ *
  */
 
 namespace Sysgram\Database\Object;
 
-use Sysgram\Exception\Handler;
-use Sysgram\Utility\Env;
 use Exception;
 use mysqli;
-
+use Sysgram\Exception\Handler;
+use Sysgram\Utility\Env;
 
 class DB
 {
@@ -64,23 +62,30 @@ class DB
 
     public static function sql($sql)
     {
-        $mysqli = self::$conn;
 
-        $query = $mysqli->query($sql);
+        try {
+            $mysqli = self::$conn;
 
-        if ($query == false):
-            Handler::log($mysqli->error);
-        endif;
+            $query = $mysqli->query($sql);
 
-        return $query;
+            if ($query == false):
+                Handler::log($mysqli->error);
+            endif;
 
-        $mysqli->close();
+            return $query;
+
+            $mysqli->close();
+
+        } catch (Exception $e) {
+            Handler::log($e);
+            return "Error: " . $e;
+        }
+
     }
 
     public static function table($table)
     {
-        Handler::log("test");
-        die();
+
         $mysqli = self::$conn;
 
         $query = $mysqli->query("SELECT * FROM `" . $table . "`");
@@ -144,7 +149,7 @@ class DB
 
         $set = "";
         foreach ($data as $key => $col):
-            $set .= "`" . $col . "`='" . $key . "', ";
+            $set .= "`" . $key . "`='" . $col . "', ";
         endforeach;
 
         $column = implode(",", array_keys($where));
