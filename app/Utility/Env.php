@@ -27,7 +27,7 @@
 namespace Sysgram\Utility;
 
 use Exception;
-use Sysgram\Exceptions\Handler;
+use Sysgram\Exception\Handler;
 
 class Env
 {
