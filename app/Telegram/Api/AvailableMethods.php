@@ -37,8 +37,8 @@ trait AvailableMethods
 
     public static function sendMessage($chat_id, $text, $parse_mode = null, bool $disable_web_page_preview = null, $reply_to_message_id = null, $reply_markup = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
-        !empty($disable_web_page_preview)?$disable_web_page_preview=Getini::tg("message", "disable_web_page_preview"):$disable_web_page_preview;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($disable_web_page_preview)?$disable_web_page_preview=Getini::tg("message", "disable_web_page_preview"):$disable_web_page_preview;
 
         return Hook::bot('sendmessage', [ 'chat_id' => $chat_id, 'text' => $text, 'parse_mode' => $parse_mode, 'disable_web_page_preview' => $disable_web_page_preview, 'reply_to_message_id' => $reply_to_message_id, 'reply_markup' => $reply_markup ]);
     }
@@ -55,56 +55,56 @@ trait AvailableMethods
 
     public static function sendPhoto($chat_id, $photo, $caption = null, $parse_mode = null, $reply_markup = null, $reply_to_message_id = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
 
         return Hook::bot('sendPhoto', [ 'chat_id' => $chat_id, 'photo' => $photo, 'caption' => $caption, 'parse_mode' => $parse_mode, 'reply_to_message_id' => $reply_to_message_id, 'reply_markup' => $reply_markup ]);
     }
 
     public static function sendAudio($chat_id, $audio, $caption = null, $parse_mode = null, $duration = null, $title = null, $performer = null, $reply_markup = null, $reply_to_message_id = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
 
         return Hook::bot('sendAudio', [ 'chat_id' => $chat_id, 'audio' => $audio, 'caption' => $caption, 'parse_mode' => $parse_mode, 'duration' => $duration, 'title' => $title, 'performer' => $performer, 'reply_to_message_id' => $reply_to_message_id, 'reply_markup' => $reply_markup ]);
     }
 
     public static function sendDocument($chat_id, $document, $caption = null, $parse_mode = null, $reply_markup = null, $reply_to_message_id = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
         
         return Hook::bot('sendDocument', [ 'chat_id' => $chat_id, 'document' => $document, 'caption' => $caption, 'parse_mode' => $parse_mode, 'reply_to_message_id' => $reply_to_message_id, 'reply_markup' => $reply_markup ]);
     }
 
     public static function sendDocumentServer($chat_id, $document, $caption = null, $parse_mode = null, $reply_markup = null, $reply_to_message_id = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
 
         return Hook::bot('sendDocument', [ 'chat_id' => $chat_id, 'document' => new CURLFile($document), 'caption' => $caption, 'parse_mode' => $parse_mode, 'reply_to_message_id' => $reply_to_message_id, 'reply_markup' => $reply_markup ]);
     }
 
     public static function sendVideo($chat_id, $video, $caption = null, $duration = null, $parse_mode = null, $reply_markup = null, $reply_to_message_id = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
 
         return Hook::bot('sendVideo', [ 'chat_id' => $chat_id, 'video' => $video, 'caption' => $caption, 'duration' => $duration, 'parse_mode' => $parse_mode, 'reply_to_message_id' => $reply_to_message_id, 'reply_markup' => $reply_markup ]);
     }
 
     public static function sendAnimation($chat_id, $animation, $caption = null, $parse_mode = null, $reply_markup = null, $reply_to_message_id = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
 
         return Hook::bot('sendAnimation', [ 'chat_id' => $chat_id, 'animation' => $animation, 'caption' => $caption, 'parse_mode' => $parse_mode, 'reply_to_message_id' => $reply_to_message_id, 'reply_markup' => $reply_markup ]);
     }
 
     public static function sendVoice($chat_id, $voice, $caption, $duration = null, $parse_mode = null, $reply_markup = null, $reply_to_message_id = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
         
         return Hook::bot('sendVoice', [ 'chat_id' => $chat_id, 'voice' => $voice, 'caption' => $caption, 'duration' => $duration, 'parse_mode' => $parse_mode, 'reply_to_message_id' => $reply_to_message_id, 'reply_markup' => $reply_markup ]);
     }
 
     public static function sendVideoNote($chat_id, $video_note, $caption = null, $duration = null, $length = null, $parse_mode = null, $reply_markup = null, $reply_to_message_id = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
 
         return Hook::bot('sendVideoNote', [ 'chat_id' => $chat_id, 'video_note' => $video_note, 'caption' => $caption, 'duration' => $duration, 'length' => $length, 'parse_mode' => $parse_mode, 'reply_to_message_id' => $reply_to_message_id, 'reply_markup' => $reply_markup ]);
     }
