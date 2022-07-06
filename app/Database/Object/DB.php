@@ -26,7 +26,7 @@
 
 namespace Sysgram\Database\Object;
 
-use Sysgram\Exceptions\Handler;
+use Sysgram\Exception\Handler;
 use Sysgram\Utility\Env;
 use Exception;
 use mysqli;
