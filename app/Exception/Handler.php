@@ -24,7 +24,7 @@
  * 
  */
 
-namespace Sysgram\Exceptions;
+namespace Sysgram\Exception;
 
 /**
  * Class Handler
