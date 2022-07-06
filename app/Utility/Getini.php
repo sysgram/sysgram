@@ -26,7 +26,7 @@
 
 namespace Sysgram\Utility;
 
-use Sysgram\Exceptions\Handler;
+use Sysgram\Exception\Handler;
 use Exception;
 
 class Getini
