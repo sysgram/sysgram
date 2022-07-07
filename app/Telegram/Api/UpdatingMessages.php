@@ -34,15 +34,15 @@ trait UpdatingMessages
 
     public static function editMessageText($chat_id, $message_id = null, $inline_message_id = null, $text, $parse_mode = null, $disable_web_page_preview = null, $reply_markup = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
-        !empty($disable_web_page_preview)?$disable_web_page_preview=Getini::tg("message", "disable_web_page_preview"):$disable_web_page_preview;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($disable_web_page_preview)?$disable_web_page_preview=Getini::tg("message", "disable_web_page_preview"):$disable_web_page_preview;
         
         return Hook::bot('editMessageText', [ 'chat_id' => $chat_id, 'message_id' => $message_id, 'inline_message_id' => $inline_message_id, 'text' => $text, 'parse_mode' => $parse_mode, 'disable_web_page_preview' => $disable_web_page_preview, 'reply_markup' => $reply_markup ]);
     }
 
     public static function editMessageCaption($chat_id, $message_id = null, $inline_message_id = null, $caption = null, $parse_mode = null, $reply_markup = null, $reply_to_message_id = null)
     {
-        !empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
+        empty($parse_mode)?$parse_mode=Getini::tg("message", "parse_mode"):$parse_mode;
 
         return Hook::bot('editMessageCaption', [ 'chat_id' => $chat_id, 'message_id' => $message_id, 'inline_message_id' => $inline_message_id, 'caption' => $caption, 'parse_mode' => $parse_mode, 'reply_to_message_id' => $reply_to_message_id, 'reply_markup' => $reply_markup ]);
     }
